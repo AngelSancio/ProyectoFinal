@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Empelo extends CI_Controller{
+class Empleo extends CI_Controller{
 
   public function __construct()
   {
@@ -11,7 +11,7 @@ class Empelo extends CI_Controller{
 
   function index()
   {
-
+    $this->load->view('portal/EmpleoView');
   }
 
 }

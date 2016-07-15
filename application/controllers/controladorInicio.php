@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Empresa extends CI_Controller{
+class controladorInicio extends CI_Controller{
 
   public function __construct()
   {
@@ -11,7 +11,7 @@ class Empresa extends CI_Controller{
 
   function index()
   {
-    $this->load->view('registro/empresa');
+    $this->load->view('portal/principal');
   }
 
 }

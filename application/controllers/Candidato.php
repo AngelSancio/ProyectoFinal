@@ -11,7 +11,7 @@ class Candidato extends CI_Controller{
 
   function index()
   {
-    $this->load->view('Registro/Candidato');
+    $this->load->view('registro/candidato');
   }
 
 }

@@ -12,7 +12,7 @@ class Portal extends CI_Controller{
 
   function index()
   {
-    $this->load->view("Portal/Principal");
+    $this->load->view("portal/Inicio");
   }
 
 }
