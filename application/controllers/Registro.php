@@ -13,10 +13,12 @@ class Registro extends CI_Controller{
   {
     $this->load->view('registro/principal');
   }
-  function candidato(){
+  function candidato()
+  {
     $this->load->view('registro/candidato');
   }
-  function empresa(){
+  function empresa()
+  {
     $this->load->view('registro/empresa');
   }
 

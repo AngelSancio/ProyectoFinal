@@ -2,154 +2,136 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <title>Empleate ya</title>
     <style>
-    body{
 
-    }
-    #contenedor{
-      width: 80%;
-      height: 1230px;
-      margin: auto;
-      background: #E0F8F7;
-    }
-    header{
-      width: 100%;
-      height: 140px;
-    background: white;
-      float: left;
+      div #logo{
+        margin-top: -20px;
+        float: left;
+      }
+      div #sesion{
+        margin-top: 40px;
+        margin-right: 20px;
+        height: 100px;
+        float: right;
+      }
+      div #sesion button{
+        width: 150px;
+        height: 40px;
+        background: #19466A;
+        color: white;
+        border: none;
+      }
+      div #menu2{
 
-
-    }
-    #registro{
-      width: 30%;
-      height: 140px;
-      background: white;
-      float: right;
-
-    }
-    #registro img{
-      margin-left: 2%;
-    }
-    #busqueda{
-      width: 100%;
-      align-text :center;
-      background: white;
-    }
-    #botones{
-      width: 100%;
-      height: 80px;
-      background: black;
-    border-top-left-radius: 40px;
-    border-top-right-radius:40px;
-
-
-    }
-     button{
-
-  width: 155px;
-  height: 30px;
-  background: #58ACFA;
-border-radius: 20px;
-
-
-     }
-     #tablaRegistro{
-       width: 90%;
-       margin: auto;
-     }
-     .busqueda{
-       margin: auto;
-     }
-     th{
-       font-size: 24px ;
-     }
-     #footer{
-       width: 80%;
-       height: 120px;
-       margin: auto;
-       background: black;
-       border-bottom-left-radius: 40px;
-       border-bottom-right-radius: 40px;
- 	float: none;
-    	text-align: center;
-     }
-     #footer li{
-       font-size:20px;
-       padding: 2%;
-
-     }
-
-nav ul{
-
-text-align:center;
-size: 18;
-margin: 3;
-}
-a {
-text-decoration: none;
-color: white;
-}
-nav ul li{
-padding:5px;
-display: inline-block;
-
-}
-  </style>
-    <title>Portal de Empleo</title>
-</head>
+      }
+      div #menu{
+        width: 100%;
+        height: 42px;
+        background: #90C5E7;
+        float:left;
+      	border-style: none;
+      	border-color: transparent;
+      	position: relative;
+      }
+      div #menu a{
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+      }
+      div #menu nav ul{
+        text-align: right;
+        margin-right: 30px;
+      }
+      div #menu nav ul li{
+         padding-right:30px;
+          display: inline-block;
+        }
+      div #menu nav ul li:hover{
+        text-decoration: underline;
+          padding-right: 30px;
+      }
+      div #menu nav ul li:active{
+        text-decoration: underline;
+        background: black;
+      }
+      div #cuerpo{
+        width:100%;
+        height: 900px;
+      }
+      div #footer2{
+        width: 100%;
+        height: 72px;
+        background: #19466A;
+        float:left;
+      	border-style: none;
+      	border-color: transparent;
+      	position: relative;
+        align-items: left;
+      }
+      div #footer2 a{
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+      }
+      div #footer2 nav ul{
+        text-align: center;
+        margin-right: 30px;
+      }
+      div #footer2 nav ul li{
+         padding-right:30px;
+          display: inline-block;
+        }
+      div #footer2 nav ul li:hover{
+        text-decoration: underline;
+          padding-right: 30px;
+      }
+      div #footer2 nav ul li:active{
+        text-decoration: underline;
+        background: transparent;
+      }
+    </style>
+  </head>
   <body>
-    <div id="contenedor">
-  <header>
-    <a href="<?php echo base_url('portal'); ?>">  <img src="img/empleate.png" width=300px></a>
-    <div id="registro">
-      <center><h2><strong>Iniciar Sesión</strong> como: </h2></center>
-        <table  id="tablaRegistro">
-      <tr>
-    <td><a href="<?php echo base_url('candidato'); ?>"><button  type="submit" name="candidato" id="boton">CANDIDATO</button></a></td>
-        <td><a href="<?php echo base_url('empresa'); ?>"><button type="submit" name="empresa" id="boton"> EMPRESA</button></a></td>
-   </tr>
-</table>
-</div>
-</header>
-    <div id="busqueda">
-    <form method="" >
-    <table class="busqueda">
-      <tr>
-        <th> Que empleo desea buscar? </th>
-      <td><input  style=" height:100%;  "type="text" name="buscarempleo"/>  </td>
-                <th>Donde ?</th>
-                <td> <select name="ciudad" id="ciudad" style='padding:5px;'>
-           <option value="" selected></option>
-           <option value='Azua'>Azua</option><option value='Baní'>Baní</option><option value='Barahona'>Barahona</option><option value='Bonao'>Bonao</option><option value='Comendador'>Comendador</option><option value='Cotuí'>Cotuí</option><option value='Dajabón'>Dajabón</option><option value='El Seibo'>El Seibo</option><option value='Esperanza'>Esperanza</option><option value='Hato Mayor'>Hato Mayor</option><option value='Higüey'>Higüey</option><option value='Jimaní'>Jimaní</option><option value='La Romana'>La Romana</option><option value='La Vega'>La Vega</option><option value='Mao'>Mao</option><option value='Moca'>Moca</option><option value='Monte Cristi'>Monte Cristi</option><option value='Monte Plata'>Monte Plata</option><option value='Nagua'>Nagua</option><option value='Neyba'>Neyba</option><option value='Pedernales'>Pedernales</option><option value='Puerto Plata'>Puerto Plata</option><option value='Sabaneta'>Sabaneta</option><option value='Salcedo'>Salcedo</option><option value='Samaná'>Samaná</option><option value='San Cristóbal'>San Cristóbal</option><option value='San Francisco de Macorís'>San Francisco de Macorís</option><option value='San Juan de la Maguana'>San Juan de la Maguana</option><option value='San Pedro de Macorís'>San Pedro de Macorís</option><option value='Santiago'>Santiago</option><option value='Santo Domingo'>Santo Domingo</option><option value='Villa Altagracia'>Villa Altagracia</option><option value='Bávaro'>Bávaro</option><option value='Haina'>Haina</option><option value='Punta Cana'>Punta Cana</option><option value='Jarabacoa'>Jarabacoa</option><option value='Las Terrenas'>Las Terrenas</option><option value='Constanza'>Constanza</option><option value='Boca Chica'>Boca Chica</option><option value='Navarrete'>Navarrete</option>   </select>  </td>
-                <td><a href=''><img src="img/buscar.png" height=25></a></td>
-              </tr>
-            </table>
-          </form>
-
+    <div id="header">
+      <div id="logo">
+        <a href="<?php echo base_url() ?>"><img src="images/logo.png" width="159px" height="151px"></img></a>
       </div>
-      <div id="botones">
-        <table id="tablamenu" style="margin: auto; -moz-border-radius: 15px 15px 15px 15px; width: 70%;  padding: 1%; margin-left: 20%; ">
-          <tr>
-      <td><a href="<?php echo base_url('Empleo'); ?>"><button style="height:50px; " type="submit" name="empleos" id="boton" >EMPLEOS</button></a></td>
-      <td><a href="<?php echo base_url('curriculum'); ?>"><button  style="height:50px; "type="submit" name="curriculums" id="boton"> CURRICULUMS</button></a></td>
-      <td><a href="<?php echo base_url('registro'); ?>"><button style="height:50px;" type="submit" name="registrarse" id="boton" > REGISTRARTE</button></a></td>
-         </tr>
-      </table>
-
+      <div id="sesion">
+        <a href=""><button>Iniciar sesión</button></a>
+        <a href="<?php echo base_url('registro') ?>"><button>Registrarse</button></a>
       </div>
-
-      </div>
-
-      <div id="footer">
+      <div id="menu" class="barraMenu">
+        <div id="menu2">
         <nav>
-        <ul>
-        <li > <a href="">AVISO LEGAL </a></li> |
-        <li > <a href="">POLITICA DE PRIVACIDAD</a></li> |
-        <li > <a href="">POLITICA DE VENTAS</a></li> |
-        <li > <a href="">AYUDA</a></li> |
-        <li > <a href="">SERIVICIOS ESPECIALES</a></li>|
-        </ul>
-      </nav>
+          <ul>
+            <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
+            <li><a class="botonMenu" href="#">Empleos</a></li>
+            <li><a class="botonMenu" href="#">Curriculums</a></li>
+            <li><a class="botonMenu" href="#">Publicar</a></li>
+            <li><a class="botonMenu" href="#">Contacto</a></li>
+          </ul>
+        </div>
+        </nav>
+      </div>
+    </div>
+    <div id="cuerpo">
+      <div id="portada">
+        <img src="images/epleate ya recortado.jpg" width="100%"></img>
+      </div>
+    </div>
+    <div id="footer">
+      <div id="footer2">
+        <nav>
+          <ul>
+            <li><a class="botonMenu" href="#">Aviso Legal</a></li>
+            <li><a class="botonMenu" href="#">Política de Privacidad</a></li>
+            <li><a class="botonMenu" href="#">Política de Ventas</a></li>
+            <li><a class="botonMenu" href="#">Ayuda</a></li>
+            <li><a class="botonMenu" href="#">Servicios Especiales</a></li>
+          </ul>
+        </nav>
+      </div>
     </div>
   </body>
 </html>
