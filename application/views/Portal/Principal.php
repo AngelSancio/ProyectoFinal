@@ -99,17 +99,17 @@
       </div>
       <div id="sesion">
         <a href=""><button>Iniciar sesión</button></a>
-        <a href="<?php echo base_url('registro') ?>"><button>Registrarse</button></a>
+        <a href="<?php echo base_url('registro/principal') ?>"><button>Registrarse</button></a>
       </div>
       <div id="menu" class="barraMenu">
         <div id="menu2">
         <nav>
           <ul>
             <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
-            <li><a class="botonMenu" href="#">Empleos</a></li>
-            <li><a class="botonMenu" href="#">Curriculums</a></li>
-            <li><a class="botonMenu" href="#">Publicar</a></li>
-            <li><a class="botonMenu" href="#">Contacto</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('candidato/empleos') ?>">Empleos</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('empresa/curriculums') ?>">Curriculums</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('empresa/publicar') ?>">Publicar</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('inicio/contacto') ?>">Contacto</a></li>
           </ul>
         </div>
         </nav>
@@ -124,11 +124,9 @@
       <div id="footer2">
         <nav>
           <ul>
-            <li><a class="botonMenu" href="#">Aviso Legal</a></li>
-            <li><a class="botonMenu" href="#">Política de Privacidad</a></li>
-            <li><a class="botonMenu" href="#">Política de Ventas</a></li>
-            <li><a class="botonMenu" href="#">Ayuda</a></li>
-            <li><a class="botonMenu" href="#">Servicios Especiales</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('legal/aviso') ?>">Aviso Legal</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('legal/politica') ?>">Política de Privacidad</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('legal/servicios') ?>">Servicios Especiales</a></li>
           </ul>
         </nav>
       </div>

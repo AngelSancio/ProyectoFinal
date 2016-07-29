@@ -11,15 +11,19 @@ class Registro extends CI_Controller{
 
   function index()
   {
-    $this->load->view('registro/principal');
+
+  }
+  function principal()
+  {
+    $this->load->view('Registro/principal');
   }
   function candidato()
   {
-    $this->load->view('registro/candidato');
+    $this->load->view('Registro/candidato');
   }
   function empresa()
   {
-    $this->load->view('registro/empresa');
+    $this->load->view('Registro/empresa');
   }
 
 }

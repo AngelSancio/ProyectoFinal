@@ -3,7 +3,7 @@
   <head>
     <link rel="stylesheet" href="../csss/RegistroCandidato.css">
     <meta charset="utf-8">
-    <title>Registro</title>
+    <title>Empleos</title>
 
   <!--  <link rel="stylesheet" href="css/RegistroCandidato.css">-->
   </head>
