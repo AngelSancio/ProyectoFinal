@@ -8,6 +8,7 @@
       div #logo{
         margin-top: -20px;
         float: left;
+        margin-left: 5%;
       }
       div #sesion{
         margin-top: 40px;
@@ -95,7 +96,7 @@
   <body>
     <div id="header">
       <div id="logo">
-        <a href="<?php echo base_url() ?>"><img src="images/logo.png" width="159px" height="151px"></img></a>
+        <a href="<?php echo base_url() ?>"><img src="images/logo.png" width="159px" height="151px" margin-left:"50px"></img></a>
       </div>
       <div id="sesion">
         <a href=""><button>Iniciar sesión</button></a>
@@ -117,11 +118,52 @@
     </div>
     <div id="cuerpo">
       <div id="portada">
-        <img src="images/epleate ya recortado.jpg" width="100%"></img>
+        <img src="images/epleateyaecortado.jpg" width="90%">
+      <div style="position: absolute; top: 500px; left: 350px; font-size:60px; color: white;">Buscar empleo ahora es mucho mas facil!</div>
+      <div style="position: absolute; top: 660px; left: 350px; color: white; background-color:#90C5E7; width: 17%; height:180px; float:left;"><p>Mision</p><h3>Ayudar a toda persona que necesita experiencial laboral.</h3></div>
+      <div style="position: absolute; top: 660px; left: 650px; color: white; background-color:#90C5E7; width: 17%; height:180px; float:left;"><p>Vision</p><h3>Ser la primera pagina en la mente de las personas cuando necesitan buscar un empleo.</h3></div>
+      <div style="position: absolute; top: 660px; left: 950px; color: white; background-color:#90C5E7; width: 17%; height:180px; float:left;"><p>Valores</p><h3>Eficacia, Responsabilidad, Perseverancia y Rapidez.</h3></div>
+
+      <div style=" margin-top:0px; margin-left:342px; color: white; background-color:red; width: 17%; height:170px; float:left;">
+        <img src="images/mision recortada.jpg" alt="" style="margin-left:0px; width:100%; height:100%;" /></div>
+      <div style=" margin-top:0px; margin-left:34px; color: white; background-color:red; width: 17%; height:170px; float:left;">
+        <img src="images/visión recortada.jpg" alt="" style="margin-left:0px; width:100%; height:100%;" /></div>
+      <div style=" margin-top:0px; margin-left:34px; color: white; background-color:red; width: 17%; height:170px; float:left;">
+        <img src="images/valores recortados.jpg" alt="" style="margin-left:0px; width:100%; height:100%;" /></div>
+
+      <h1>Bienvenidos!</h1>
+      <h2>Somos un portal capacitado en ayudar a las personas a buscar
+        trabajo en todo el mundo.</h2>
+    <style >
+        #portada img{
+          margin-left: 6%;
+        }
+        p{
+          text-align: center;
+          font-size: 30px;
+        }
+        h3{
+          margin-left: 7%;
+        }
+        h1{
+          color: blue;
+          font-size: 100px;
+          text-align: center;
+
+
+        } h2{
+          color: blue;
+          font-size: 25px;
+          margin-top: -1%;
+          text-align: center;
+          margin-bottom: 3%;
+
+        }
+      </style></img>
       </div>
     </div>
     <div id="footer">
-      <div id="footer2">
+      <div id="footer2" >
         <nav>
           <ul>
             <li><a class="botonMenu" href="<?php echo base_url('legal/aviso') ?>">Aviso Legal</a></li>

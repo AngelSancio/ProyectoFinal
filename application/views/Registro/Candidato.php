@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <link rel="stylesheet" href="../csss/RegistroCandidato.css">
-    <meta charset="utf-8">
-    <title>Registro de Empresa</title>
-
-  <!--  <link rel="stylesheet" href="css/RegistroCandidato.css">-->
-  </head>
+<?php plantilla::iniciar(); ?>
   <style >
 body{
   color: white;
@@ -63,92 +55,87 @@ h4{
 #fieldset h1{
   margin-left: 35%;
 }
-  </style>
-  <body>
-    <header>
-      <div id="logo">
-            <a href="<?php echo base_url() ?>"><img src="../images/logo.png" width="159px" height="151px" style="margin-left:200px;"></img></a>
-            <div class="botonesPrincipales">
-              <a href=""><button>Iniciar sesión</button></a>
-            <a href=""><button>Registrarse</button></a>
-            </div>
+div #divTbl{
 
-      </div>
-    </header>
-    <div class="menu">
-      <div id="menu2">
-          <nav>
-            <ul>
-              <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
-              <li><a class="botonMenu" href="#">Empleos</a></li>
-              <li><a class="botonMenu" href="#">Curriculums</a></li>
-              <li><a class="botonMenu" href="#">Publicar</a></li>
-              <li><a class="botonMenu" href="#">Contacto</a></li>
-            </ul>
-          </div>
-          </nav>
-        </div>
-    </div>
-    <div class="contenido">
-      <form method="post" action="">
+  color:black;
+}
+div #tblDatos{
+  width: 300px;
+}
+.contenido{
+  height: 1500px;
+}
+.footer{
+  margin-top: 2000px;
+}
+  </style>
+
+      <form method="post" action="<?php echo base_url('candidato/guardar') ?>" enctype="multipart/form-data">
   <div id="formulario">
     <fieldset id="fieldset">
       <h1>Datos Personales</h1>
       <table>
         <tr>
+          <th>ID:
+            <td>
+              <input class="tamanoInput" readonly type="number" name="ID"  value="<?php echo $candidato->ID; ?>"/>*
+            </td>
+          </th>
+        </tr>
+        <tr>
           <th>Nombre:
             <td>
-              <input class="tamanoInput" type="text" name="Nombre"  id="nombre"/>*
+              <input class="tamanoInput" type="text" name="Nombre" />*
             </td>
           </th>
         </tr>
         <tr>
           <th>Apellido:
             <td>
-              <input class="tamanoInput" type="text" name="Apellido" id="apellido"/>*
+              <input class="tamanoInput" type="text" name="Apellido" />*
             </td>
           </th>
         </tr>
         <tr>
           <th>Cédula:
             <td>
-              <input class="tamanoInput" type="text" name="Cedula"  id="cedula"/>*
+              <input class="tamanoInput" type="text" name="Cedula"  />*
             </td>
           </th>
         </tr>
         <tr>
           <th>Sexo:
             <td>
-              <input type="radio" name="Sexo"  id="sexo"/>Femenino
-              <input type="radio" name="Sexo"  id="sexo"/>Masculino
+              <input type="radio" name="Sexo" value="Femenino" />Femenino
+              <input type="radio" name="Sexo" value="Masculino" />Masculino
             </td>
           </th>
         </tr>
         <tr>
           <th>Dirección:
             <td>
-              <input class="tamanoInput" type="text" name="Direccion"  id="direccion"/>*
+              <input class="tamanoInput" type="text" name="Direccion" />*
             </td>
           </th>
         </tr>
         <tr>
           <th>Ciudad:
             <td>
-              <input class="tamanoInput" type="text" name="Ciudad"  id="ciudad"/>*
+              <input class="tamanoInput" type="text" name="Ciudad" />*
             </td>
           </th>
         </tr>
         <tr>
           <th>Fecha de Nacimiento:
             <td>
-              <input class="tamano2" type="date" name="FechaNacimiento"  id="fechaNac"/><h4>(MM/DD/AAAA)</h4>*
+              <input class="tamano2" type="date" name="FechaNacimiento" /><h4>(MM/DD/AAAA)</h4>*
             </td>
           </th>
         </tr>
         <tr>
           <th>Nacionalidad:
             <td>
-              <input class="tamanoInput" type="text" name="Nacionalidad"  id="nacionalidad"/>*
+              <input class="tamanoInput" type="text" name="Nacionalidad" />*
             </td>
           </th>
         </tr>
@@ -156,40 +143,40 @@ h4{
           <th>Foto:
             <td>
               <button class="subirArchivo">
-              <input class="botonForm" type="file" name="Foto"  id="foto"/>*
+              <input class="botonForm" type="file" name="Foto" />*
               Adjuntar Archivo</button>
           </th>
         </tr>
         <tr>
           <th>Estado Civil:
             <td>
-              <input type="radio" name="EstadoCivil"  id="estadoCivil"/>Soltero/a
-              <input type="radio" name="EstadoCivil"  id="estadoCivil"/>Casado/a
-              <input type="radio" name="EstadoCivil"  id="estadoCivil"/>Unión Libre *
+              <input type="radio" name="EstadoCivil" value="Soltero/a"/>Soltero/a
+              <input type="radio" name="EstadoCivil" value="Casado/a"/>Casado/a
+              <input type="radio" name="EstadoCivil" value="Union Libre"/>Unión Libre *
             </td>
           </th>
         </tr>
         <tr>
           <th>Nivel Académico:
             <td>
-              <input type="radio" name="NivelAcademico"  id="nivelAcademico"/>Primaria
-              <input type="radio" name="NivelAcademico"   id="nivelAcademico"/>Secundaria
-              <input type="radio" name="NivelAcademico"   id="nivelAcademico"/>Universitario *
+              <input type="radio" name="NivelAcademico" value="Primaria"/>Primaria
+              <input type="radio" name="NivelAcademico" value="Secundaria"/>Secundaria
+              <input type="radio" name="NivelAcademico" value="Universitario"/>Universitario *
             </td>
           </th>
         </tr>
         <tr>
           <th>¿Está Laborando?
             <td>
-              <input type="radio" name="Laborando"  id="laborando"/>Si
-              <input type="radio" name="Laborando"  id="laborando"/>No
+              <input type="radio" name="Laborando" value="Si"/>Si
+              <input type="radio" name="Laborando" value="No"/>No
             </td>
           </th>
         </tr>
         <tr>
           <th>E - mail:
             <td>
-              <input class="tamanoInput" type="text" name="Email"  id="email"/>*
+              <input class="tamanoInput" type="text" name="Email" />*
             </td>
           </th>
         </tr>
@@ -197,14 +184,14 @@ h4{
           <th>Curriculum:
             <td>
               <button class="subirArchivo">
-              <input class="botonForm" type="file" name="Curriculum" id="curriculum"/>*
+              <input class="botonForm" type="file" name="Curriculum"/>*
               Adjuntar Archivo</button>
           </th>
         </tr>
         <tr>
           <th>Clave:
             <td>
-              <input class="tamano2" type="password" name="Clave"  id="clave"/>*
+              <input class="tamano2" type="password" name="Clave" />*
 
             </td>
           </th>
@@ -225,19 +212,71 @@ h4{
     </fieldset>
   </div>
 </form>
-    </div>
+<div id="divTbl">
+  <fieldset>
+    <legend><h3>Registros Anteriores</h3></legend>
+  <table id="tblDatos" align="center" rules="all">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Apellido</th>
+        <th>Cedula</th>
+        <th>Sexo</th>
+        <th>Direccion</th>
+        <th>Ciudad</th>
+        <th>Fecha de Nacimiento</th>
+        <th>Nacionalidad</th>
+        <th>Foto</th>
+        <th>Estado Civil</th>
+        <th>Nivel Academico</th>
+        <th>Esta Laborando?</th>
+        <th>E-mail</th>
+        <th>Curriculum</th>
+        <th>Clave</th>
+      </tr>
+    </thead>
+    <tbody>
 
-    <div class="footer">
-      <div id="footer2">
-            <nav>
-              <ul>
-                <li><a class="botonMenu" href="#">Aviso Legal</a></li>
-                <li><a class="botonMenu" href="#">Política de Privacidad</a></li>
-                <li><a class="botonMenu" href="#">Servicios Especiales</a></li>
-              </ul>
-            </nav>
-          </div>
-    </div>
+      <?php
 
-  </body>
-</html>
+        foreach($candidatos as $candidato){
+
+          $linkEdit = base_url("/candidato/?ID={$candidato->ID}");
+          $linkDelete = base_url("/candidato/delete/?ID={$candidato->ID}");
+
+          echo "<tr>
+            <td>{$candidato->ID}</td>
+            <td>{$candidato->Nombre}</td>
+            <td>{$candidato->Apellido}</td>
+            <td>{$candidato->Cedula}</td>
+            <td>{$candidato->Sexo}</td>
+            <td>{$candidato->Direccion}</td>
+            <td>{$candidato->Ciudad}</td>
+            <td>{$candidato->FechaNacimiento}</td>
+            <td>{$candidato->Nacionalidad}</td>
+            <td>{$candidato->Foto}</td>
+            <td>{$candidato->EstadoCivil}</td>
+            <td>{$candidato->NivelAcademico}</td>
+            <td>{$candidato->Laborando}</td>
+            <td>{$candidato->Email}</td>
+            <td>{$candidato->Curriculum}</td>
+            <td>{$candidato->Clave}</td>
+            <td>
+              <button><a href='{$linkEdit}' class='btn btn-info btn-sm'>Edit</a></button>
+              <button><a href='{$linkDelete}' onclick='return validarBorrar();' class='btn btn-danger btn-sm'>Del</a></button>
+            </td>
+          </tr>";
+        }
+
+       ?>
+    </tbody>
+  </table>
+</fieldset>
+</div>
+<script>
+  function validarBorrar(){
+
+    return confirm("Seguro que desea borrar esta fila, esta operacion no se puede cancelar");
+  }
+</script>

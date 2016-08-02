@@ -17,5 +17,16 @@ class Inicio extends CI_Controller{
   {
     $this->load->view('Portal/contacto');
   }
-
+  function Aviso()
+  {
+    $this->load->view('Legal/aviso');
+  }
+  function Politica()
+  {
+    $this->load->view('Legal/politica');
+  }
+  function Servicios()
+  {
+    $this->load->view('Legal/servicios');
+  }
 }
