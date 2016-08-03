@@ -3,96 +3,121 @@
   <head>
     <meta charset="utf-8">
     <title>Empleate ya</title>
-    <style>
+      </head>
+      <style >
 
-      div #logo{
-        margin-top: -20px;
-        float: left;
-        margin-left: 5%;
-      }
-      div #sesion{
-        margin-top: 40px;
-        margin-right: 20px;
-        height: 100px;
-        float: right;
-      }
-      div #sesion button{
-        width: 150px;
-        height: 40px;
-        background: #19466A;
-        color: white;
-        border: none;
-      }
-      div #menu2{
+            div #logo{
+              margin-top: -20px;
+              float: left;
+              margin-left: 5%;
+            }
+            div #sesion{
+              margin-top: 40px;
+              margin-right: 20px;
+              height: 100px;
+              float: right;
+            }
+            div #sesion button{
+              width: 150px;
+              height: 40px;
+              background: #19466A;
+              color: white;
+              border: none;
+            }
+            div #menu2{
 
-      }
-      div #menu{
-        width: 100%;
-        height: 42px;
-        background: #90C5E7;
-        float:left;
-      	border-style: none;
-      	border-color: transparent;
-      	position: relative;
-      }
-      div #menu a{
-        text-decoration: none;
-        color: white;
-        font-size: 20px;
-      }
-      div #menu nav ul{
-        text-align: right;
-        margin-right: 30px;
-      }
-      div #menu nav ul li{
-         padding-right:30px;
-          display: inline-block;
-        }
-      div #menu nav ul li:hover{
-        text-decoration: underline;
-          padding-right: 30px;
-      }
-      div #menu nav ul li:active{
-        text-decoration: underline;
-        background: black;
-      }
-      div #cuerpo{
-        width:100%;
-        height: 900px;
-      }
-      div #footer2{
-        width: 100%;
-        height: 72px;
-        background: #19466A;
-        float:left;
-      	border-style: none;
-      	border-color: transparent;
-      	position: relative;
-        align-items: left;
-      }
-      div #footer2 a{
-        text-decoration: none;
-        color: white;
-        font-size: 20px;
-      }
-      div #footer2 nav ul{
-        text-align: center;
-        margin-right: 30px;
-      }
-      div #footer2 nav ul li{
-         padding-right:30px;
-          display: inline-block;
-        }
-      div #footer2 nav ul li:hover{
-        text-decoration: underline;
-          padding-right: 30px;
-      }
-      div #footer2 nav ul li:active{
-        text-decoration: underline;
-        background: transparent;
-      }
-    </style>
-  </head>
+            }
+            div #menu{
+              width: 100%;
+              height: 42px;
+              background: #90C5E7;
+              float:left;
+              border-style: none;
+              border-color: transparent;
+              position: relative;
+            }
+            div #menu a{
+              text-decoration: none;
+              color: white;
+              font-size: 20px;
+            }
+            div #menu nav ul{
+              text-align: right;
+              margin-right: 30px;
+            }
+            div #menu nav ul li{
+               padding-right:30px;
+                display: inline-block;
+              }
+            div #menu nav ul li:hover{
+              text-decoration: underline;
+                padding-right: 30px;
+            }
+            div #menu nav ul li:active{
+              text-decoration: underline;
+              background: black;
+            }
+            div #cuerpo{
+              width:100%;
+              height: 900px;
+            }
+            div #footer2{
+              width: 100%;
+              height: 72px;
+              background: #19466A;
+              float:left;
+              border-style: none;
+              border-color: transparent;
+              position: relative;
+              align-items: left;
+            }
+            div #footer2 a{
+              text-decoration: none;
+              color: white;
+              font-size: 20px;
+            }
+            div #footer2 nav ul{
+              text-align: center;
+              margin-right: 30px;
+            }
+            div #footer2 nav ul li{
+               padding-right:30px;
+                display: inline-block;
+              }
+            div #footer2 nav ul li:hover{
+              text-decoration: underline;
+                padding-right: 30px;
+            }
+            div #footer2 nav ul li:active{
+              text-decoration: underline;
+              background: transparent;
+            }
+            #portada img{
+              margin-left: 6%;
+            }
+            p{
+              text-align: center;
+              font-size: 30px;
+            }
+            h3{
+              margin-left: 7%;
+            }
+            h1{
+              color: blue;
+              font-size: 100px;
+              text-align: center;
+
+
+            } h2{
+              color: blue;
+              font-size: 25px;
+              margin-top: -1%;
+              text-align: center;
+              margin-bottom: 3%;
+
+            }
+
+      </style>
   <body>
     <div id="header">
       <div id="logo">
@@ -106,11 +131,34 @@
         <div id="menu2">
         <nav>
           <ul>
+            <?php if(isset($_SESSION['candidato'])){?>
+            <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('candidato/empleos') ?>">Empleos</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('inicio/contacto') ?>">Contacto</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('IniciarSesion/salir') ?>">Cerrar Sesion</a></li>
+
+          <?php } else if(isset($_SESSION['empresa'])){ ?>
+            <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('empresa/curriculums') ?>">Curriculums</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('empresa/publicar') ?>">Publicar</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('inicio/contacto') ?>">Contacto</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('IniciarSesion/salir') ?>">Cerrar Sesion</a></li>
+
+          <?php } else if(isset($_SESSION['administrador'])){?>
             <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
             <li><a class="botonMenu" href="<?php echo base_url('candidato/empleos') ?>">Empleos</a></li>
             <li><a class="botonMenu" href="<?php echo base_url('empresa/curriculums') ?>">Curriculums</a></li>
             <li><a class="botonMenu" href="<?php echo base_url('empresa/publicar') ?>">Publicar</a></li>
             <li><a class="botonMenu" href="<?php echo base_url('inicio/contacto') ?>">Contacto</a></li>
+            <li><a class="botonMenu" href="<?php echo base_url('IniciarSesion/salir') ?>">Cerrar Sesion</a></li>
+
+          <?php } else{ ?>
+              <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('candidato/empleos') ?>">Empleos</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('empresa/curriculums') ?>">Curriculums</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('empresa/publicar') ?>">Publicar</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('inicio/contacto') ?>">Contacto</a></li>
+            <?php } ?>
           </ul>
         </div>
         </nav>
@@ -134,32 +182,7 @@
       <h1>Bienvenidos!</h1>
       <h2>Somos un portal capacitado en ayudar a las personas a buscar
         trabajo en todo el mundo.</h2>
-    <style >
-        #portada img{
-          margin-left: 6%;
-        }
-        p{
-          text-align: center;
-          font-size: 30px;
-        }
-        h3{
-          margin-left: 7%;
-        }
-        h1{
-          color: blue;
-          font-size: 100px;
-          text-align: center;
-
-
-        } h2{
-          color: blue;
-          font-size: 25px;
-          margin-top: -1%;
-          text-align: center;
-          margin-bottom: 3%;
-
-        }
-      </style></img>
+    </img>
       </div>
     </div>
     <div id="footer">

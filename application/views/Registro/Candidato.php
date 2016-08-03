@@ -1,75 +1,66 @@
 <?php plantilla::iniciar(); ?>
-  <style >
-body{
-  color: white;
-  font-size: 20px;
-}
-input{
-  margin-top: 10px;
-  margin-right: 20px;
-}
-input.tamanoInput{
-  width: 600px;
-  height: 30px;
-}
-input.tamano2{
-  float: left;
-  width: 200px;
-  height: 30px;
-}
-fieldset{
-  border: none;
-}
-h4{
-  float: left;
-  margin-top: 10px;
-}
-.botonForm{
-  width: 150px;
-  height: 40px;
-  background: #19466A;
-  color: white;
-  border: none;
-}
-.subirArchivo input.botonForm{
-  position: absolute;
-  top: 0;
-  right: 0;
-  margin: 0;
-  padding: 0;
-  font-size: 24px;
-  cursor: pointer;
-  opacity: 0;
-  filter: alpha(opacity=0);
-}
-.subirArchivo{
-  position: relative;
-  overflow: hidden;
-  margin: 10px;
-  width: 150px;
-  height: 40px;
-  background: #19466A;
-  color: white;
-  border: none;
-}
-#fieldset h1{
-  margin-left: 35%;
-}
-div #divTbl{
+<script>
+function validarContacto(){
+  var nombre = document.getElementById("nombre").value;
+  var apellido= document.getElementById("apellido").value;
+  var cedula = document.getElementById("cedula").value;
+ var ciudad = document.getElementById("ciudad").value;
+ var fechaNac = document.getElementById("fechaNac").value;
+  var nacionalidad= document.getElementById("nacionalidad").value;
+  var email= document.getElementById("email").value;
+  var curriculum= document.getElementById("curriculum").value;
+  var clave= document.getElementById("clave").value;
+if (nombre==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios");
+  document.getElementById('nombre').focus();
+  return false;
+};
 
-  color:black;
-}
-div #tblDatos{
-  width: 300px;
-}
-.contenido{
-  height: 1500px;
-}
-.footer{
-  margin-top: 2000px;
-}
-  </style>
+ if(apellido==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios ");
+  document.getElementById('apellido').focus();
+  return false;
+};
+if  (cedula==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios ");
+  document.getElementById('cedula').focus();
+  return false;
+};
+if  (ciudad==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios ");
+  document.getElementById('ciudad').focus();
+  return false;
+};
+if  (fechaNac==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'Campo Fecha de Nacimiento'");
+  document.getElementById('fechaNac').focus();
+  return false;
+};
 
+if  (nacionalidad==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'Campo Nacionalidad'");
+  document.getElementById('nacionalidad').focus();
+  return false;
+};
+if  (email==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'Campo Email'");
+  document.getElementById('email').focus();
+  return false;
+};
+if  (curriculum==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'Campo Curriculum'");
+  document.getElementById('curriculum').focus();
+  return false;
+};
+if  (clave==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'Campo clave'");
+  document.getElementById('clave').focus();
+  return false;
+};
+
+}
+</script>
+  <link rel="stylesheet" href="../css/candidato.css" >
       <form method="post" action="<?php echo base_url('candidato/guardar') ?>" enctype="multipart/form-data">
   <div id="formulario">
     <fieldset id="fieldset">
@@ -78,28 +69,28 @@ div #tblDatos{
         <tr>
           <th>ID:
             <td>
-              <input class="tamanoInput" readonly type="number" name="ID"  value="<?php echo $candidato->ID; ?>"/>*
+              <input class="tamanoInput"  readonly type="number" name="ID"  idvalue="<?php echo $candidato->ID; ?>"/>*
             </td>
           </th>
         </tr>
         <tr>
           <th>Nombre:
             <td>
-              <input class="tamanoInput" type="text" name="Nombre" />*
+              <input class="tamanoInput"  type="text" name="Nombre" id="nombre" required value="<?php echo $candidato->Nombre; ?>"/>*
             </td>
           </th>
         </tr>
         <tr>
           <th>Apellido:
             <td>
-              <input class="tamanoInput" type="text" name="Apellido" />*
+              <input class="tamanoInput" type="text" name="Apellido" id="apellido"required value="<?php echo $candidato->Apellido; ?>"/>*
             </td>
           </th>
         </tr>
         <tr>
           <th>Cédula:
             <td>
-              <input class="tamanoInput" type="text" name="Cedula"  />*
+              <input class="tamanoInput" type="text" name="Cedula"  id="cedula"  required value="<?php echo $candidato->Cedula; ?>"/>*
             </td>
           </th>
         </tr>
@@ -114,28 +105,28 @@ div #tblDatos{
         <tr>
           <th>Dirección:
             <td>
-              <input class="tamanoInput" type="text" name="Direccion" />*
+              <input class="tamanoInput" type="text" name="Direccion" value="<?php echo $candidato->Direccion; ?>"/>
             </td>
           </th>
         </tr>
         <tr>
           <th>Ciudad:
             <td>
-              <input class="tamanoInput" type="text" name="Ciudad" />*
+              <input class="tamanoInput" type="text" name="Ciudad" id="ciudad" required value="<?php echo $candidato->Ciudad; ?>"/>*
             </td>
           </th>
         </tr>
         <tr>
           <th>Fecha de Nacimiento:
             <td>
-              <input class="tamano2" type="date" name="FechaNacimiento" /><h4>(MM/DD/AAAA)</h4>*
+              <input class="tamano2" type="date" name="FechaNacimiento"id="fechaNac" required value="<?php echo $candidato->FechaNacimiento; ?>"/><h4>(MM/DD/AAAA)</h4>*
             </td>
           </th>
         </tr>
         <tr>
           <th>Nacionalidad:
             <td>
-              <input class="tamanoInput" type="text" name="Nacionalidad" />*
+              <input class="tamanoInput" type="text" name="Nacionalidad" id="nacionalidad"required value="<?php echo $candidato->Nacionalidad; ?>"/>*
             </td>
           </th>
         </tr>
@@ -143,7 +134,7 @@ div #tblDatos{
           <th>Foto:
             <td>
               <button class="subirArchivo">
-              <input class="botonForm" type="file" name="Foto" />*
+              <input class="botonForm" type="file" name="Foto" id="foto" required  value="<?php echo $candidato->Foto; ?>"/>*
               Adjuntar Archivo</button>
           </th>
         </tr>
@@ -152,16 +143,16 @@ div #tblDatos{
             <td>
               <input type="radio" name="EstadoCivil" value="Soltero/a"/>Soltero/a
               <input type="radio" name="EstadoCivil" value="Casado/a"/>Casado/a
-              <input type="radio" name="EstadoCivil" value="Union Libre"/>Unión Libre *
+              <input type="radio" name="EstadoCivil" value="Union Libre"/>Unión Libre
             </td>
           </th>
         </tr>
         <tr>
           <th>Nivel Académico:
             <td>
-              <input type="radio" name="NivelAcademico" value="Primaria"/>Primaria
-              <input type="radio" name="NivelAcademico" value="Secundaria"/>Secundaria
-              <input type="radio" name="NivelAcademico" value="Universitario"/>Universitario *
+              <input type="radio" id="nivel" name="NivelAcademico" required value="Primaria"/>Primaria
+              <input type="radio" id="nivel" name="NivelAcademico" required value="Secundaria"/>Secundaria
+              <input type="radio" id="nivel" name="NivelAcademico" required value="Universitario"/>Universitario *
             </td>
           </th>
         </tr>
@@ -176,7 +167,7 @@ div #tblDatos{
         <tr>
           <th>E - mail:
             <td>
-              <input class="tamanoInput" type="text" name="Email" />*
+              <input class="tamanoInput" type="text" id="email"name="Email" required value="<?php echo $candidato->Email; ?>"/>*
             </td>
           </th>
         </tr>
@@ -184,14 +175,14 @@ div #tblDatos{
           <th>Curriculum:
             <td>
               <button class="subirArchivo">
-              <input class="botonForm" type="file" name="Curriculum"/>*
+              <input class="botonForm" type="file" name="Curriculum" id= "subir" required value="<?php echo $candidato->Curriculum; ?>"/>*
               Adjuntar Archivo</button>
           </th>
         </tr>
         <tr>
           <th>Clave:
             <td>
-              <input class="tamano2" type="password" name="Clave" />*
+              <input class="tamano2" type="password" name="Clave" id="clave" required value="<?php echo $candidato->Clave; ?>"/>*
 
             </td>
           </th>
@@ -200,7 +191,7 @@ div #tblDatos{
           <th>
             <td colspan="2">
               <center>
-              <button type="submit" value="submit" class="botonForm">Guardar</button>
+              <button type="submit" value="submit" onclick="validarContacto()"class="botonForm">Guardar</button>
               </center>
 
               <center><h4>* Campos obligatorios</h4>
@@ -213,33 +204,9 @@ div #tblDatos{
   </div>
 </form>
 <div id="divTbl">
-  <fieldset>
-    <legend><h3>Registros Anteriores</h3></legend>
-  <table id="tblDatos" align="center" rules="all">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nombre</th>
-        <th>Apellido</th>
-        <th>Cedula</th>
-        <th>Sexo</th>
-        <th>Direccion</th>
-        <th>Ciudad</th>
-        <th>Fecha de Nacimiento</th>
-        <th>Nacionalidad</th>
-        <th>Foto</th>
-        <th>Estado Civil</th>
-        <th>Nivel Academico</th>
-        <th>Esta Laborando?</th>
-        <th>E-mail</th>
-        <th>Curriculum</th>
-        <th>Clave</th>
-      </tr>
-    </thead>
-    <tbody>
+
 
       <?php
-//<td><a href='".base_url("subido/{$candidato->Foto}");"'>{$candidato->Foto}</a>Foto</td>
         foreach($candidatos as $candidato){
 
           $linkEdit = base_url("/candidato/?ID={$candidato->ID}");
@@ -247,7 +214,7 @@ div #tblDatos{
           $foto = base_url("/subido/{$candidato->Foto}");
           $curriculum = base_url("/subido/{$candidato->Curriculum}");
 
-          echo "<tr>
+        /*  echo "<tr>
             <td>{$candidato->ID}</td>
             <td>{$candidato->Nombre}</td>
             <td>{$candidato->Apellido}</td>
@@ -268,7 +235,7 @@ div #tblDatos{
               <button><a href='{$linkEdit}' class='btn btn-info btn-sm'>Edit</a></button>
               <button><a href='{$linkDelete}' onclick='return validarBorrar();' class='btn btn-danger btn-sm'>Del</a></button>
             </td>
-          </tr>";
+          </tr>";*/
         }
 
        ?>

@@ -30,6 +30,9 @@ class candidato_model extends CI_Model{
     $query = $this->db->get('candidato');
 
     $rs = $query->result();
+    //var_dump ($this->db->where('Email=',$usr));
+    //var_dump ($this->db->where('Clave=',md5($clv)));
+    //var_dump ($rs);
     if(count($rs) > 0){
       $candidato = $rs[0];
       return $candidato->ID;
@@ -39,15 +42,12 @@ class candidato_model extends CI_Model{
   $nn = $todos->result();
   //var_dump($usr,$clv,$rs);
   //var_dump($candidato);
-  /*if($nn[0]->nr < 1 && $usr == 'admin' && $clv == 'tareafacil'){
+  if($nn[0]->nr < 1 && $usr == 'admin' && $clv == 'tareafacil'){
     return 0;
-  }*/
- /*if($usr == 'admin' && $clv == 'tareafacil'){
-    return 0;
-  }*/
-  if(($usr==['Email'] && $clv==['Clave'])){
-    return true;
   }
+/*  if($usr == 'admin' && $clv == 'tareafacil'){
+    return 0;
+  }*/
   return false;
   }
 

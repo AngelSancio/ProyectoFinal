@@ -5,6 +5,7 @@ class Registro extends CI_Controller{
 
   public function __construct()
   {
+    define('NOLOGIN',true);
     parent::__construct();
     //Codeigniter : Write Less Do More
   }
@@ -17,13 +18,4 @@ class Registro extends CI_Controller{
   {
     $this->load->view('Registro/principal');
   }
-  function candidato()
-  {
-    $this->load->view('Registro/candidato');
-  }
-  function empresa()
-  {
-    $this->load->view('Registro/empresa');
-  }
-
 }

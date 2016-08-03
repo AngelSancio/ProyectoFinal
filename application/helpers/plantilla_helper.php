@@ -35,11 +35,34 @@ class plantilla{
       <div id="menu2">
           <nav>
             <ul>
+              <?php if(isset($_SESSION['candidato'])){?>
+              <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('candidato/empleos') ?>">Empleos</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('inicio/contacto') ?>">Contacto</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('IniciarSesion/salir') ?>">Cerrar Sesion</a></li>
+
+            <?php } else if(isset($_SESSION['empresa'])){ ?>
+              <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('empresa/curriculums') ?>">Curriculums</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('empresa/publicar') ?>">Publicar</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('inicio/contacto') ?>">Contacto</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('IniciarSesion/salir') ?>">Cerrar Sesion</a></li>
+
+            <?php } else if(isset($_SESSION['administrador'])){?>
               <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
               <li><a class="botonMenu" href="<?php echo base_url('candidato/empleos') ?>">Empleos</a></li>
               <li><a class="botonMenu" href="<?php echo base_url('empresa/curriculums') ?>">Curriculums</a></li>
               <li><a class="botonMenu" href="<?php echo base_url('empresa/publicar') ?>">Publicar</a></li>
               <li><a class="botonMenu" href="<?php echo base_url('inicio/contacto') ?>">Contacto</a></li>
+              <li><a class="botonMenu" href="<?php echo base_url('IniciarSesion/salir') ?>">Cerrar Sesion</a></li>
+
+            <?php } else{ ?>
+                <li><a class="botonMenu" href="<?php echo base_url() ?>">Inicio</a></li>
+                <li><a class="botonMenu" href="<?php echo base_url('candidato/empleos') ?>">Empleos</a></li>
+                <li><a class="botonMenu" href="<?php echo base_url('empresa/curriculums') ?>">Curriculums</a></li>
+                <li><a class="botonMenu" href="<?php echo base_url('empresa/publicar') ?>">Publicar</a></li>
+                <li><a class="botonMenu" href="<?php echo base_url('inicio/contacto') ?>">Contacto</a></li>
+              <?php } ?>
             </ul>
           </div>
           </nav>

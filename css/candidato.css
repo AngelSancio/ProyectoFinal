@@ -1,0 +1,68 @@
+body{
+  color: white;
+  font-size: 20px;
+}
+input{
+  margin-top: 10px;
+  margin-right: 20px;
+}
+input.tamanoInput{
+  width: 600px;
+  height: 30px;
+}
+input.tamano2{
+  float: left;
+  width: 200px;
+  height: 30px;
+}
+fieldset{
+  border: none;
+}
+h4{
+  float: left;
+  margin-top: 10px;
+}
+.botonForm{
+  width: 150px;
+  height: 40px;
+  background: #19466A;
+  color: white;
+  border: none;
+}
+.subirArchivo input.botonForm{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  font-size: 24px;
+  cursor: pointer;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.subirArchivo{
+  position: relative;
+  overflow: hidden;
+  margin: 10px;
+  width: 150px;
+  height: 40px;
+  background: #19466A;
+  color: white;
+  border: none;
+}
+#fieldset h1{
+  margin-left: 35%;
+}
+div #divTbl{
+
+  color:black;
+}
+div #tblDatos{
+  width: 300px;
+}
+.contenido{
+  height: 1000px;
+}
+.footer{
+  margin-top: 1290px;
+}

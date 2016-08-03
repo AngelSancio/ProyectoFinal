@@ -1,79 +1,30 @@
-.usuario{
-  width: 60%;
-  height: 10%;
+.form{
+  width: 50%;
+  height: 90%;
 
-  margin-left: 20%;
-  margin-top: 5%;
-}
-.usuario h1{
-  text-align: center;
-  color: blue;
-  font-size: 50px;
-}
-#user{
-  width: 75%;
-  height: 20%;
-    margin-top: 2%;
-  background-color: #19466A;
-  margin-left:15%;
-
-}
-#pass{
-  width: 75%;
-  height: 20%;
-  background-color: #19466A;
-  margin-left:15%;
-
-}
-#user h1{
-  color: white;
-  float: left;
-  margin-left: 3%;
-}
-#user input{
-  margin-left: 5%;
-  margin-top:5%;
-  height: 40%;
-  width: 60%;
-  float: left;
-}
-
-#pass input{
-height: 40%;
-width: 50%;
-margin-left: 190px;
-  float: left;
-  margin-top:-12%;
-}
-#pass h1{
-  color: white;
-  margin-left: 3%;
-}
-.IniciarUsuario{
-  width: 60%;
-  height: 35%;
   margin: auto;
-  margin-left: 20%;
-  margin-top: 1%;
 }
+
+.form h1{
+  color: white;
+  font-size: 38px;
+
+}
+.form th{
+  font-size: 20px;
+  color: white;
+  margin-left: 10%;
+}
+ h4{
+margin-left: 80px;
+
+ }
 button{
-  width: 20%;
-  height: 15%;
+  margin-left:100px;
+}
+#buton{
+  margin-left: 5%;
   background-color: #19466A;
-  margin-left: 40%;
-  margin-top: 5%;
-}
-/*----------*/
-.empresa h1{
-  text-align: center;
-  color: blue;
-  font-size: 50px;
-
-}
-.IniciarEmpresa{
-  width: 60%;
-  height: 35%;
-  margin: auto;
-  margin-left: 20%;
-  margin-top: 1%;
+  width: 100px;
+  height: 40px;
 }

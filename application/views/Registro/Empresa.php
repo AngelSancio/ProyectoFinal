@@ -1,92 +1,102 @@
 <?php plantilla::iniciar(); ?>
-    <style>
-      body{
-        color: white;
-        font-size: 20px;
-      }
-      input{
-        margin-top: 10px;
-        margin-right: 20px;
-      }
-      input.tamanoInput{
-        width: 600px;
-        height: 30px;
-      }
-      input.tamano2{
-        float: left;
-        width: 200px;
-        height: 30px;
-      }
-      fieldset{
-        border: none;
-      }
-      h4{
-        float: left;
-        margin-top: 10px;
-      }
-      .botonForm{
-        width: 150px;
-        height: 40px;
-        background: #19466A;
-        color: white;
-        border: none;
-      }
-      .subirArchivo input.botonForm{
-        position: absolute;
-        top: 0;
-        right: 0;
-        margin: 0;
-        padding: 0;
-        font-size: 24px;
-        cursor: pointer;
-        opacity: 0;
-        filter: alpha(opacity=0);
-      }
-      .subirArchivo{
-        position: relative;
-        overflow: hidden;
-        margin: 10px;
-        width: 150px;
-        height: 40px;
-        background: #19466A;
-        color: white;
-        border: none;
-      }
-.dedicar{
-  width: 600px;
-  height: 120px;
+<script>
+function validarEmpresa(){
+  var nombre = document.getElementById("nombre").value;
+  var dedicar= document.getElementById("dedicar").value;
+  var email = document.getElementById("email").value;
+ var rnc = document.getElementById("rnc").value;
+ var direccion = document.getElementById("direccion").value;
+  var clave= document.getElementById("clave").value;
+  var departamentoContacto= document.getElementById("departamentoContacto").value;
+  var telefonoContacto= document.getElementById("telefonoContacto").value;
+  var logo= document.getElementById("logo").value;
+if (nombre==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios");
+  document.getElementById('nombre').focus();
+  return false;
+};
+if(dedicar==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'CAMPO A QUE SE DEDICA?'");
+  document.getElementById('dedicar').focus();
+  return false;
+};
+if  (email==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'EMAIL' ");
+  document.getElementById('email').focus();
+  return false;
+};
+if  (rnc==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'CAMPO RNC'");
+  document.getElementById('rnc').focus();
+  return false;
+};
+if  (direccion==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'CAMPO DIRRECCION'");
+  document.getElementById('direccion').focus();
+  return false;
+};
+
+if  (clave==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'CAMPO CLAVE'");
+  document.getElementById('clave').focus();
+  return false;
+};
+if  (departamentoContacto==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'CAMPO DEPARTAMENTO CANDIDATO'");
+  document.getElementById('departamentoContacto').focus();
+  return false;
+};
+if  (telefonoContacto==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'TELEFONO CONTACTO'");
+  document.getElementById('telefonoContacto').focus();
+  return false;
+};
+if  (logo==0 ){
+  alert("Los campos que tienen Asteriscos * son obligatorios 'LOGO'");
+  document.getElementById('logo').focus();
+  return false;
+};
+
 }
-  </style>
-      <form method="post" action="">
+</script>
+  <link rel="stylesheet" href="../css/empresa.css">
+      <form method="post" action="<?php echo base_url('empresa/guardar') ?>" enctype="multipart/form-data">
       <div id="formulario">
       <fieldset id="fieldset">
   <legend align="center"><h1>Datos Personales</h1></legend>
   <table>
     <tr>
+      <th>ID:
+        <td>
+          <input class="tamanoInput" readonly type="number" name="ID" required value="<?php echo $empresa->ID; ?>" />*
+        </td>
+      </th>
+    </tr>
+    <tr>
       <th>Nombre:
         <td>
-          <input class="tamanoInput" type="text" name="Nombre"   id="nombre" value=""/>*
+          <input class="tamanoInput" type="text" name="Nombre"   id="nombre" required value="<?php echo $empresa->Nombre; ?>"/>*
         </td>
       </th>
     </tr>
     <tr>
       <th>A que te dedicas?
         <td>
-          <input class="dedicar" type="text" name="dedicar"  />*
+          <input class="dedicar" type="text" name="Dedicarse" id="dedicar" required value="<?php echo $empresa->Dedicarse; ?>" />*
         </td>
       </th>
     </tr>
     <tr>
       <th>E-mail:
         <td>
-          <input class="tamanoInput" type="text" name="Email"  id="email"/>*
+          <input class="tamanoInput" type="text" name="Email"  id="email" required value="<?php echo $empresa->Email; ?>"/>*
         </td>
       </th>
     </tr>
     <tr>
       <th>País:</th>
       <td>
-         <select name="Pais" id="pais" class="uno">
+         <select name="Pais" id="pais" class="uno"value="<?php echo $empresa->Pais; ?>">
           <option>Seleccione un país</option>
           <option value="AF">Afganistan</option>
           <option value="AL">Albania</option>
@@ -328,56 +338,63 @@
     <tr>
       <th>RNC:
         <td>
-          <input class="tamanoInput" type="text" name="Rnc"  id="rnc"/>*
+          <input class="tamanoInput" type="text" name="Rnc"  id="rnc" required value="<?php echo $empresa->Rnc; ?>"/>*
         </td>
       </th>
     </tr>
     <tr>
       <th>Pagina Web:
         <td>
-          <input class="tamanoInput" type="text" name="PaginaWb"  id="paginaWeb"/>
+          <input class="tamanoInput" type="text" name="PaginaWeb"  id="paginaWeb" value="<?php echo $empresa->PaginaWeb; ?>"/>
         </td>
       </th>
     </tr>
     <tr>
       <th>Direccion:
         <td>
-          <input class="tamano2" type="text" name="Direccion"  id="direccion"/>*
+          <input class="tamano2" type="text" name="Direccion"  id="direccion" required value="<?php echo $empresa->Direccion; ?>"/>*
         </td>
       </th>
     </tr>
     <tr>
       <th>Ciudad:
         <td>
-          <input class="tamanoInput" type="password" name="Ciudad"  id="ciudad"/>*
+          <input class="tamanoInput" type="text" name="Ciudad"  id="ciudad" value="<?php echo $empresa->Ciudad; ?>"/>
         </td>
       </th>
     </tr>
     <tr>
       <th>Clave:
         <td>
-          <input class="tamanoInput" type="pasword" name="Clave"  id="clave"/>*
+          <input class="tamanoInput" type="password" name="Clave"  id="clave" required value="<?php echo $empresa->Clave; ?>"/>*
         </td>
       </th>
     </tr>
     <tr>
       <th>Persona de contacto:
         <td>
-          <input class="tamanoInput" type="pasword" name="PersonaContacto"  id="personaContacto"/>*
+          <input class="tamanoInput" type="text" name="PersonaContacto"  id="personaContacto" value="<?php echo $empresa->PersonaContacto; ?>"/>
+        </td>
+      </th>
+    </tr>
+    <tr>
+      <th>Departamento de contacto:
+        <td>
+          <input class="tamanoInput" type="text" name="DepartamentoContacto"  id="departamentoContacto" required value="<?php echo $empresa->DepartamentoContacto; ?>"/>*
         </td>
       </th>
     </tr>
     <tr>
       <th>Telefono de contacto:
         <td>
-          <input class="tamanoInput" type="pasword" name="TelefonoContacto"  id="telefonoContacto"/>*
+          <input class="tamanoInput" type="pasword" name="TelefonoContacto"  id="telefonoContacto" required value="<?php echo $empresa->TelefonoContacto; ?>"/>*
         </td>
       </th>
     </tr>
     <tr>
       <th>E-mail de contacto:
         <td>
-          <input class="tamanoInput" type="text" name="EmailContacto"  id="emailContacto"/>*
+          <input class="tamanoInput" type="text" name="EmailContacto"  id="emailContacto" value="<?php echo $empresa->EmailContacto; ?>"/>
         </td>
       </th>
     </tr>
@@ -386,7 +403,7 @@
       <th>Logo:
         <td>
           <button class="subirArchivo">
-          <input class="botonForm" type="file" name="Curriculum" id="logo"/>*
+          <input class="botonForm" type="file" name="Logo"  id="logo" required value="<?php echo $empresa->Logo; ?>"/>*
           Adjuntar Archivo</button>
       </th>
     </tr>
@@ -395,11 +412,11 @@
       <th>
         <td colspan="2">
           <center>
-          <button type="submit" class="botonForm">Guardar</button>
+          <button type="submit" onclick="validarEmpresa()" class="botonForm">Guardar</button>
           </center>
 
           <center>
-          <h4>* Campos obligatorios</h4>
+          <h2>* Campos obligatorios</h2>
           </center>
         </td>
       </th>
@@ -408,3 +425,73 @@
 </fieldset>
 </div>
 </form>
+
+<div id="divTbl">
+  <!--<fieldset>
+    <legend><h3>Registros Anteriores</h3></legend>
+  <table id="tblDatos" align="center" rules="all">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>A que te dedicas?</th>
+        <th>E-mail</th>
+        <th>Pais</th>
+        <th>Rnc</th>
+        <th>Pagina Web</th>
+        <th>Direccion</th>
+        <th>Ciudad</th>
+        <th>Clave</th>
+        <th>Persona de Contacto</th>
+        <th>Departamento de Contacto</th>
+        <th>Telefono de Contacto</th>
+        <th>Email de Contacto</th>
+        <th>Logo</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <?php
+
+        foreach($empresas as $empresa){
+
+          $linkEdit = base_url("/empresa/empresa/?ID={$empresa->ID}");
+          $linkDelete = base_url("/empresa/delete/?ID={$empresa->ID}");
+          $logo = base_url("/logo/{$empresa->Logo}");
+
+          echo "<tr>
+            <td>{$empresa->Nombre}</td>
+            <td>{$empresa->Dedicarse}</td>
+            <td>{$empresa->Email}</td>
+            <td>{$empresa->Pais}</td>
+            <td>{$empresa->Rnc}</td>
+            <td>{$empresa->PaginaWeb}</td>
+            <td>{$empresa->Direccion}</td>
+            <td>{$empresa->Ciudad}</td>
+            <td>{$empresa->Clave}</td>
+            <td>{$empresa->PersonaContacto}</td>
+            <td>{$empresa->DepartamentoContacto}</td>
+            <td>{$empresa->TelefonoContacto}</td>
+            <td>{$empresa->EmailContacto}</td>
+            <td><button><a href='{$logo}'>Logo</a></button></td>
+
+            <td>
+              <button><a href='{$linkEdit}' class='btn btn-info btn-sm'>Edit</a></button>
+              <button><a href='{$linkDelete}' onclick='return validarBorrar();' class='btn btn-danger btn-sm'>Del</a></button>
+            </td>
+          </tr>";
+        }
+
+       ?>
+    </tbody>
+  </table>
+</fieldset>
+</div>
+<script>
+  function validarBorrar(){
+
+    return confirm("Seguro que desea borrar esta fila, esta operacion no se puede cancelar");
+  }
+</script>
+<style >
+
+</style>

@@ -1,0 +1,20 @@
+.foto button{
+width: 30%;
+height: 55%;
+background-color: #19466A;;
+position: relative;
+margin-left:5%;
+margin-top: -250px;
+color: white;
+font-size: 20px;
+}
+.foto{
+width: 60%;
+height: 10%;
+margin-top: 15%;
+position: absolute;
+margin-left: 25%;
+}
+#imgParaBotones{
+width: 100%;
+}

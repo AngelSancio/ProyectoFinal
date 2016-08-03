@@ -7,6 +7,8 @@ class Candidato extends CI_Controller{
   {
     parent::__construct();
     $this->load->model('candidato_model');
+    $this->load->model('empresa_model');
+    $this->load->model('publicar_model');
     //Codeigniter : Write Less Do More
   }
 
@@ -30,70 +32,6 @@ class Candidato extends CI_Controller{
     $this->load->view('Registro/candidato', $data);
   }
 
-  /*function guardarImagen(){
-    $foto = 'Foto';
-    $archivo = 'Curriculum';
-    $config['upload_path'] = 'subido/';
-    //$config['file_name'] = 'archivo';
-    $config['allowed_types'] = "jpg|png|jpeg|pdf";
-    $config['max_size'] = "0";
-    $config['max_width'] = "0";
-    $config['max_height'] = "0";
-    $config['maintain_ratio'] = true;
-
-    $this->load->library('upload', $config);
-    $this->upload->do_upload($foto);
-    $this->upload->do_upload($archivo);
-    $data_upload_files = $this->upload->data();
-
-    $image_path = $this->upload->data();
-    $archivo_path = $this->upload->data();
-     $data = array(
-         'Foto'=>$image_path['full_path'],
-         'Curriculum'=>$archivo_path['full_path'],
-           );
-             $this->db->insert('candidato',$data);
-
-    /*if (!$this->upload->do_upload($foto)){
-      //Error
-      $data['uploadError'] = $this->upload->display_errors();
-      echo $this->upload->display_errors();
-      return;
-    }
-    $data['uploadSuccess'] = $this->upload->data();
-  }
-  function guardarPDF(){
-    $archivo = 'Curriculum';
-    $config['upload_path'] = 'archivo/';
-    $config['file_name'] = 'archivo';
-    $config['allowed_types'] = "pdf";
-    $config['max_size'] = "0";
-    $config['max_width'] = "0";
-    $config['max_height'] = "0";
-    $config['maintain_ratio'] = true;
-
-    $this->load->library('upload', $config);
-
-    if (!$this->upload->do_upload($archivo)){
-      //Error
-      $data['uploadError'] = $this->upload->display_errors();
-      echo $this->upload->display_errors();
-      return;
-    }
-    $data['uploadSuccess'] = $this->upload->data();
-  }
-
-  //$image = $data_upload_files['full_path'];
-  /*  $image_path = $this->upload->data();
- $data = array(
-   'id'=>$this->input->post('id'),
-   'nombre'=>$this->input->post('nombre'),
-
-   'precio'=>$this->input->post('precio'),
-     'imagen'=>$image_path['full_path'],
-     'categoria_id'=>$this->input->post('categoria_id')
-       );
-         $this->db->insert(TABLE_PRODUCTO,$data);*/
 
   function guardarImagen(){
     $foto = 'Foto';
@@ -139,7 +77,27 @@ class Candidato extends CI_Controller{
       $this->guardarPDF();
 
       $_POST['Clave'] = md5($_POST['Clave']);
+      $email = $_POST['Email'];
       $this->candidato_model->guardarCandidato($_POST);
+
+      $mensajec = '<html>
+								<head>
+								<title>Confirmación de registro</title>
+								</head>
+								<body>
+									<h1>Bienvenido a Empleate Ya</h1>
+									<p>Esperamos que sea de su agrado la pagina y que puedas encontrar tu trabajo ideal.</p>
+								</body>
+							</html>';
+
+				//cabecera
+				$headers = "MIME-Version: 1.0\r\n";
+				$headers .= "Content-type: text/html; charset=iso-8859-1\r\n";
+				//dirección del remitente
+				$headers .= "From: www.empleoya.260mb.net/Empleate Ya <20131717@itla.edu.do>\r\n";
+				$headers .=  "Reply-To: 20131717@itla.edu.do \r\n";
+
+				mail($email, 'Confirmación de registro', $mensajec, $headers);
     }
     $this->load->view('Candidato/mensaje');
   }
@@ -150,7 +108,18 @@ class Candidato extends CI_Controller{
   }
   function empleos()
   {
-    $this->load->view('Empleos/principal');
+    $data = array();
+
+    $id = 0;
+    if(isset($_GET['ID'])){
+      $id = $_GET['ID']+0;
+    }
+
+    $data['publicar'] = $this->publicar_model->cargarPublicar($id);
+
+    $data['publicaciones'] = $this->publicar_model->listarPublicaciones();
+
+    $this->load->view('Empleos/principal', $data);
   }
 
 }

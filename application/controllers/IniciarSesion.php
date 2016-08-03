@@ -5,10 +5,12 @@ class IniciarSesion extends CI_Controller{
 
   public function __construct()
   {
+    define('NOLOGIN',true);
     parent::__construct();
     //Codeigniter : Write Less Do More
     $this->load->model('candidato_model');
-    //$this->load->model('empresa_model');
+    $this->load->model('empresa_model');
+    $this->load->model('administrador_model');
   }
 
   function index()
@@ -25,6 +27,10 @@ class IniciarSesion extends CI_Controller{
    redirect('Inicio');
  }*/
 
+  function salir(){
+   session_destroy();
+   redirect('inicio');
+  }
 
   function loginCandidato(){
 
@@ -37,7 +43,6 @@ class IniciarSesion extends CI_Controller{
       redirect('inicio');
     }else{
       $this->load->view('IniciarS/error');
-      //$this->db->_error_message();
     }
    }
 
@@ -45,14 +50,27 @@ class IniciarSesion extends CI_Controller{
 
     $usuario = $_POST['Email'];
     $clave = $_POST['Clave'];
-    $tmp = $this->candidato_model->iniciarSesion($usuario,$clave);
+    $tmp = $this->empresa_model->iniciarSesion($usuario,$clave);
 
     if($tmp !== false){
       $_SESSION['empresa'] = $tmp;
       redirect('inicio');
     }else{
       $this->load->view('IniciarS/error');
-      //$this->db->_error_message();
+    }
+  }
+
+  function loginAdministrador(){
+
+    $usuario = $_POST['Email'];
+    $clave = $_POST['Clave'];
+    $tmp = $this->administrador_model->iniciarSesion($usuario,$clave);
+
+    if($tmp !== false){
+      $_SESSION['administrador'] = $tmp;
+      redirect('inicio');
+    }else{
+      $this->load->view('IniciarS/error');
     }
    }
 }
