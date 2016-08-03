@@ -26,7 +26,7 @@ class plantilla{
       <div id="logo">
         <a href="<?php echo base_url() ?>"><img src="<?php echo base_url('/images') ?>/logo.png" width="159px" height="151px" style="margin-left:200px;"></img></a>
         <div class="botonesPrincipales">
-          <a href=""><button>Iniciar sesión</button></a>
+          <a href="<?php echo base_url('IniciarSesion/Entrar') ?>"><button>Iniciar sesión</button></a>
         <a href="<?php echo base_url('registro/principal') ?>"><button>Registrarse</button></a>
         </div>
       </div>

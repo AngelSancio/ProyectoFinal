@@ -118,3 +118,6 @@ header{
                                 text-decoration: underline;
                                 background: transparent;
                               }
+a{
+  text-decoration: none;
+}

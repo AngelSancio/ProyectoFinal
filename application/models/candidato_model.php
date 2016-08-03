@@ -23,6 +23,34 @@ class candidato_model extends CI_Model{
     }
   }
 
+  function iniciarSesion($usr, $clv){
+
+    $this->db->where('Email=',$usr);
+    $this->db->where('Clave=',md5($clv));
+    $query = $this->db->get('candidato');
+
+    $rs = $query->result();
+    if(count($rs) > 0){
+      $candidato = $rs[0];
+      return $candidato->ID;
+  }
+
+  $todos = $this->db->query("select count(*) as nr from candidato");
+  $nn = $todos->result();
+  //var_dump($usr,$clv,$rs);
+  //var_dump($candidato);
+  /*if($nn[0]->nr < 1 && $usr == 'admin' && $clv == 'tareafacil'){
+    return 0;
+  }*/
+ /*if($usr == 'admin' && $clv == 'tareafacil'){
+    return 0;
+  }*/
+  if(($usr==['Email'] && $clv==['Clave'])){
+    return true;
+  }
+  return false;
+  }
+
   function listarCandidatos(){
     $query = $this->db->get('candidato');
 

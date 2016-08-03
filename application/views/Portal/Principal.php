@@ -99,7 +99,7 @@
         <a href="<?php echo base_url() ?>"><img src="images/logo.png" width="159px" height="151px" margin-left:"50px"></img></a>
       </div>
       <div id="sesion">
-        <a href=""><button>Iniciar sesión</button></a>
+        <a href="<?php echo base_url('IniciarSesion/Entrar') ?>"><button>Iniciar sesión</button></a>
         <a href="<?php echo base_url('registro/principal') ?>"><button>Registrarse</button></a>
       </div>
       <div id="menu" class="barraMenu">
@@ -167,7 +167,8 @@
         <nav>
           <ul>
             <li><a class="botonMenu" href="<?php echo base_url('legal/aviso') ?>">Aviso Legal</a></li>
-            <li><a class="botonMenu" href="<?php echo base_url('legal/politica') ?>">Política de Privacidad</a></li>
+            <li><a class="botonMenu" href="<?php
+             echo base_url('legal/politica') ?>">Política de Privacidad</a></li>
             <li><a class="botonMenu" href="<?php echo base_url('legal/servicios') ?>">Servicios Especiales</a></li>
           </ul>
         </nav>

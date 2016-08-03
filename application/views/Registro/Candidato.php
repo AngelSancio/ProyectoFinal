@@ -200,7 +200,7 @@ div #tblDatos{
           <th>
             <td colspan="2">
               <center>
-              <button type="submit" class="botonForm">Guardar</button>
+              <button type="submit" value="submit" class="botonForm">Guardar</button>
               </center>
 
               <center><h4>* Campos obligatorios</h4>
@@ -239,11 +239,13 @@ div #tblDatos{
     <tbody>
 
       <?php
-
+//<td><a href='".base_url("subido/{$candidato->Foto}");"'>{$candidato->Foto}</a>Foto</td>
         foreach($candidatos as $candidato){
 
           $linkEdit = base_url("/candidato/?ID={$candidato->ID}");
           $linkDelete = base_url("/candidato/delete/?ID={$candidato->ID}");
+          $foto = base_url("/subido/{$candidato->Foto}");
+          $curriculum = base_url("/subido/{$candidato->Curriculum}");
 
           echo "<tr>
             <td>{$candidato->ID}</td>
@@ -255,12 +257,12 @@ div #tblDatos{
             <td>{$candidato->Ciudad}</td>
             <td>{$candidato->FechaNacimiento}</td>
             <td>{$candidato->Nacionalidad}</td>
-            <td>{$candidato->Foto}</td>
+            <td><button><a href='{$foto}'>Foto</a></button></td>
             <td>{$candidato->EstadoCivil}</td>
             <td>{$candidato->NivelAcademico}</td>
             <td>{$candidato->Laborando}</td>
             <td>{$candidato->Email}</td>
-            <td>{$candidato->Curriculum}</td>
+            <td><button><a href='{$curriculum}'>Curriculum</a></button></td>
             <td>{$candidato->Clave}</td>
             <td>
               <button><a href='{$linkEdit}' class='btn btn-info btn-sm'>Edit</a></button>
